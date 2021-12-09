@@ -5,12 +5,9 @@ export const emailValidation = (email) => {
 };
 
 export const passValidation = (pass) => {
-  let length = false;
-  if (pass.length < 6) {
-    return true;
-  }
-
-  return true;
+  const passRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{7,}$/;
+  return passRegex.test(pass);
 };
 
 export const formValidation = (email, pass, rePass, password) => {
@@ -23,9 +20,9 @@ export const formValidation = (email, pass, rePass, password) => {
 };
 
 export const passText = [
-  'Must be at least one lower case',
-  'Must be at leaset one upper case',
-  'Must be at least one digit',
-  'Must be at least one special character',
-  'Must be at least 7 characters',
+  'LOWER_CASE',
+  'UPPER_CASE',
+  'ONE_NUMBER',
+  'SPECIAL_CHAR',
+  'CHAR_COUNT',
 ];

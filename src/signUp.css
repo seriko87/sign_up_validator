@@ -44,7 +44,7 @@ input:focus {
   border: none;
   /* border: 1px solid rgb(219, 219, 219); */
   padding-left: 40px;
-  -webkit-box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.28);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
   background-color: rgb(245, 245, 245);
   margin-bottom: 5px;
@@ -61,7 +61,7 @@ input:focus {
   border-radius: 0;
   border: none;
   color: white;
-  -webkit-box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.28);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
   font-weight: 500;
   font-size: 16px;
@@ -98,6 +98,7 @@ a {
   width: 80%;
   color: grey;
 }
+
 .logInInfo a {
   font-weight: 500;
 }
@@ -114,4 +115,46 @@ button[disabled]:hover {
   opacity: 0.5;
   cursor: auto;
   background-color: rgb(39, 117, 235);
+}
+
+.passInfo {
+  position: absolute;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(185, 24, 24);
+  top: 76px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  padding: 4px;
+  left: -4px;
+}
+.triangle {
+  position: absolute;
+  top: -10px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+
+  border-bottom: 8px solid black;
+}
+.errorPass {
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  justify-content: space-between;
+}
+
+.errorIcon {
+  font-size: 16px !important;
+}
+
+.rightIcon {
+  color: rgb(13, 124, 13);
+  font-size: 15px !important;
 }

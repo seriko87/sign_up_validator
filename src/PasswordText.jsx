@@ -1,0 +1,43 @@
+import { CheckCircleOutlined, ErrorOutline } from '@material-ui/icons';
+import React from 'react';
+import { passText } from './Validation';
+import { useState, useEffect, useReducer } from 'react';
+import { passReducer } from './passReducer';
+const defaultState = {
+  text: '',
+  isRight: false,
+};
+
+const PasswordContainer = ({ item, pass }) => {
+  //   const [isRight, setIsRight] = useState(false);
+  //   const [expressions, setExpression] = useState('');
+  const [state, dispatch] = useReducer(passReducer, defaultState);
+  console.log(item);
+  console.log(pass);
+  console.log(state);
+
+  useEffect(() => {
+    dispatch({ type: item, payload: pass });
+  }, [pass]);
+
+  return (
+    <span className="errorPass">
+      <span
+        style={
+          state.isRight
+            ? { color: 'rgb(13, 124, 13)' }
+            : { color: 'rgb(185, 24, 24)' }
+        }
+      >
+        {state.text}
+      </span>
+      {!state.isRight ? (
+        <ErrorOutline className="errorIcon" />
+      ) : (
+        <CheckCircleOutlined className="rightIcon" />
+      )}
+    </span>
+  );
+};
+
+export default PasswordContainer;

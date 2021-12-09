@@ -1,5 +1,5 @@
 import './signUp.css';
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback, useState, useRef } from 'react';
 import { EmailOutlined, LockOutlined } from '@material-ui/icons';
 import {
   emailValidation,
@@ -7,6 +7,7 @@ import {
   formValidation,
   passText,
 } from './Validation';
+import PasswordContainer from './PasswordText';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -17,9 +18,12 @@ const SignUp = () => {
   const [emailCorrect, setIsEmailCorrect] = useState(false);
   const [passCorrect, setPassCorrect] = useState(false);
   const [formCorrect, setFormCorrect] = useState(false);
+  const [hasFocus, setFocus] = useState(true);
+  const ref = useRef();
 
   const SITE_KEY = process.env.REACT_APP_SITE_KEY;
 
+  console.log('main');
   useEffect(() => {
     if (emailValidation(email)) {
       setIsEmailCorrect(true);
@@ -34,7 +38,23 @@ const SignUp = () => {
     } else {
       setPassCorrect(false);
     }
+
+    console.log(passCorrect);
   }, [password]);
+
+  useEffect(() => {
+    if (emailCorrect && passCorrect & (password === rePassword)) {
+      setFormCorrect(true);
+      console.log(formCorrect);
+    } else {
+      setFormCorrect(false);
+    }
+  }, [email, password, rePassword]);
+  useEffect(() => {
+    if (document.hasFocus() && ref.current.contains(document.activeElement)) {
+      setFocus(true);
+    }
+  }, []);
   // reCAPTCHA v3 integration for me info check below links
   //www.cluemediator.com/how-to-implement-recaptcha-v3-in-react
 
@@ -137,7 +157,26 @@ const SignUp = () => {
             className="signUpInput"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
+            ref={ref}
           />
+          {hasFocus ? (
+            <div className="passInfo">
+              <div className="triangle"></div>
+              {passText.map((item) => {
+                return (
+                  <>
+                    <PasswordContainer
+                      pass={password}
+                      item={item}
+                      setPassCorrect={setPassCorrect}
+                    />{' '}
+                  </>
+                );
+              })}
+            </div>
+          ) : null}
         </div>
         <div className="inputPassword">
           <LockOutlined
@@ -156,22 +195,18 @@ const SignUp = () => {
         <button
           className="signUpCreate"
           onClick={handleCreate}
-          disabled={
-            formValidation(emailCorrect, passCorrect, rePassword, password)
-              ? false
-              : true
-          }
+          disabled={formCorrect ? false : true}
         >
           {loading ? 'Submitting...' : 'Create an account'}
         </button>
       </form>
-      {response && (
-        <label>
+      {/* {response && (
+        <label> Chloek123.
           Output:
           <br />
           <pre>{JSON.stringify(response, undefined, 2)}</pre>
         </label>
-      )}
+      )} */}
       <div className="signUpInfo">
         <div>
           This site is protected by reCAPTCHA and the Google <br />
