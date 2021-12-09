@@ -1,0 +1,117 @@
+.signUpContainer {
+  background-color: rgb(255, 255, 255);
+  height: 550px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.signUpTitle {
+  font-size: 35px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputPassword,
+.inputEmail {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  row-gap: 5px;
+  position: relative;
+  color: rgb(58, 79, 109);
+}
+input {
+  outline: 0;
+}
+input:focus {
+  outline: none !important;
+  border-bottom: 2px solid blue;
+}
+
+.signUpInput {
+  height: 40px;
+  border: none;
+  /* border: 1px solid rgb(219, 219, 219); */
+  padding-left: 40px;
+  -webkit-box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  background-color: rgb(245, 245, 245);
+  margin-bottom: 5px;
+  box-sizing: border-box;
+}
+::placeholder {
+  color: rgb(138, 138, 138);
+}
+
+.signUpCreate {
+  height: 40px;
+  background-color: rgb(39, 117, 235);
+  width: 80%;
+  border-radius: 0;
+  border: none;
+  color: white;
+  -webkit-box-shadow: 1px 5px 6px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+.signUpCreate:hover {
+  background-color: rgb(36, 108, 216);
+}
+
+.signUpInfo {
+  font-size: 10px;
+  color: grey;
+  display: flex;
+  justify-content: center;
+}
+.signUpInfo div {
+  width: 80%;
+}
+a {
+  text-decoration: none;
+  color: rgb(39, 117, 235);
+}
+
+.signUpIcons {
+  position: absolute;
+  bottom: 13px;
+  left: 10px;
+  font-size: 22px !important;
+  /* color: rgb(13, 124, 13); */
+  color: rgb(158, 158, 158);
+}
+
+.logInInfo {
+  width: 80%;
+  color: grey;
+}
+.logInInfo a {
+  font-weight: 500;
+}
+
+.signUpHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button:disabled,
+button[disabled]:hover {
+  opacity: 0.5;
+  cursor: auto;
+  background-color: rgb(39, 117, 235);
+}
