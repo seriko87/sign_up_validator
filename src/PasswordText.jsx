@@ -9,8 +9,6 @@ const defaultState = {
 };
 
 const PasswordContainer = ({ item, pass }) => {
-  //   const [isRight, setIsRight] = useState(false);
-  //   const [expressions, setExpression] = useState('');
   const [state, dispatch] = useReducer(passReducer, defaultState);
 
   useEffect(() => {

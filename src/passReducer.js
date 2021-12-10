@@ -84,4 +84,10 @@ export const passReducer = (state, action) => {
       text: 'Must be at least 7 characters and no whitespace',
     };
   }
+  if (action.type === 'LWOER') {
+    return {
+      ...state,
+      text1: 'Must be at least 7 characters and no whitespace',
+    };
+  }
 };

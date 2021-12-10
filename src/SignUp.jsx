@@ -1,6 +1,11 @@
 import './signUp.css';
 import { useEffect, useState, useRef } from 'react';
-import { EmailOutlined, LockOutlined } from '@material-ui/icons';
+import {
+  EmailOutlined,
+  LockOutlined,
+  Visibility,
+  VisibilityOff,
+} from '@material-ui/icons';
 import { emailValidation, passValidation, passText } from './Validation';
 import PasswordContainer from './PasswordText';
 
@@ -14,6 +19,8 @@ const SignUp = () => {
   const [passCorrect, setPassCorrect] = useState(false);
   const [formCorrect, setFormCorrect] = useState(false);
   const [hasFocus, setFocus] = useState(false);
+  const [passVisStatus, setPassVisStatus] = useState(false);
+
   const ref = useRef();
 
   const SITE_KEY = process.env.REACT_APP_SITE_KEY;
@@ -32,8 +39,6 @@ const SignUp = () => {
     } else {
       setPassCorrect(false);
     }
-
-    console.log(passCorrect);
   }, [password]);
 
   useEffect(() => {
@@ -44,11 +49,16 @@ const SignUp = () => {
       setFormCorrect(false);
     }
   }, [email, password, rePassword]);
+
   useEffect(() => {
     if (document.hasFocus() && ref.current.contains(document.activeElement)) {
       setFocus(true);
     }
   }, []);
+
+  const handleVisPass = () => {
+    setPassVisStatus(!passVisStatus);
+  };
 
   // reCAPTCHA v3 integration for me info check below links
   //www.cluemediator.com/how-to-implement-recaptcha-v3-in-react
@@ -147,7 +157,7 @@ const SignUp = () => {
           />
           <label htmlFor="password">Password</label>
           <input
-            type="password"
+            type={passVisStatus ? 'text' : 'password'}
             name="password"
             className="signUpInput"
             placeholder="Password"
@@ -180,12 +190,23 @@ const SignUp = () => {
           />
           <label htmlFor="passwordRepeat">Repeat Password</label>
           <input
-            type="password"
+            type={passVisStatus ? 'text' : 'password'}
             name="passwordRepeat"
             className="signUpInput"
             placeholder="Repeat Password"
             onChange={(e) => setRePassword(e.target.value)}
           />
+          {!passVisStatus ? (
+            <Visibility
+              className="visibility"
+              onClick={() => handleVisPass()}
+            />
+          ) : (
+            <VisibilityOff
+              className="visibility"
+              onClick={() => handleVisPass()}
+            />
+          )}
         </div>
         <button
           className="signUpCreate"

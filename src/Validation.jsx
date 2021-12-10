@@ -7,7 +7,10 @@ export const emailValidation = (email) => {
 export const passValidation = (pass) => {
   const passRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{7,}$/;
-  return passRegex.test(pass);
+
+  const regPass = passRegex.test(pass);
+  const spacePass = /\s/.test(pass);
+  return regPass && !spacePass;
 };
 
 export const passText = [
