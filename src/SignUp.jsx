@@ -1,12 +1,7 @@
 import './signUp.css';
-import { useEffect, useCallback, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { EmailOutlined, LockOutlined } from '@material-ui/icons';
-import {
-  emailValidation,
-  passValidation,
-  formValidation,
-  passText,
-} from './Validation';
+import { emailValidation, passValidation, passText } from './Validation';
 import PasswordContainer from './PasswordText';
 
 const SignUp = () => {
@@ -18,12 +13,11 @@ const SignUp = () => {
   const [emailCorrect, setIsEmailCorrect] = useState(false);
   const [passCorrect, setPassCorrect] = useState(false);
   const [formCorrect, setFormCorrect] = useState(false);
-  const [hasFocus, setFocus] = useState(true);
+  const [hasFocus, setFocus] = useState(false);
   const ref = useRef();
 
   const SITE_KEY = process.env.REACT_APP_SITE_KEY;
 
-  console.log('main');
   useEffect(() => {
     if (emailValidation(email)) {
       setIsEmailCorrect(true);
@@ -55,6 +49,7 @@ const SignUp = () => {
       setFocus(true);
     }
   }, []);
+
   // reCAPTCHA v3 integration for me info check below links
   //www.cluemediator.com/how-to-implement-recaptcha-v3-in-react
 

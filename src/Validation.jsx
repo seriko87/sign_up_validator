@@ -10,15 +10,6 @@ export const passValidation = (pass) => {
   return passRegex.test(pass);
 };
 
-export const formValidation = (email, pass, rePass, password) => {
-  if (pass && email) {
-    if (rePass === password) {
-      return true;
-    }
-  }
-  return false;
-};
-
 export const passText = [
   'LOWER_CASE',
   'UPPER_CASE',
