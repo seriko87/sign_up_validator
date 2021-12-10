@@ -1,6 +1,6 @@
 .signUpContainer {
   background-color: rgb(255, 255, 255);
-  height: 550px;
+  height: 580px;
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@
 form {
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 22px;
   justify-content: center;
   align-items: center;
 }
@@ -33,6 +33,7 @@ form {
 }
 input {
   outline: 0;
+  font-size: 16px;
 }
 input:focus {
   outline: none !important;
@@ -40,14 +41,13 @@ input:focus {
 }
 
 .signUpInput {
-  height: 40px;
+  height: 45px;
   border: none;
-  /* border: 1px solid rgb(219, 219, 219); */
   padding-left: 40px;
   -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.28);
   background-color: rgb(245, 245, 245);
-  margin-bottom: 5px;
+  border-radius: 5px;
   box-sizing: border-box;
 }
 ::placeholder {
@@ -55,10 +55,10 @@ input:focus {
 }
 
 .signUpCreate {
-  height: 40px;
+  height: 45px;
   background-color: rgb(39, 117, 235);
   width: 80%;
-  border-radius: 0;
+  border-radius: 5px;
   border: none;
   color: white;
   -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.28);
@@ -66,6 +66,7 @@ input:focus {
   font-weight: 500;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 5px;
 }
 .signUpCreate:hover {
   background-color: rgb(36, 108, 216);
@@ -96,7 +97,7 @@ a {
 
 .logInInfo {
   width: 80%;
-  color: grey;
+  color: #959595;
 }
 
 .logInInfo a {
@@ -166,5 +167,19 @@ button[disabled]:hover {
   right: 7px;
   font-size: 20px !important;
   cursor: pointer;
-  color: grey;
+  color: #b1aeae;
+}
+
+@media (max-width: 768px) {
+  .signUpContainer {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    row-gap: 40px;
+  }
+
+  input {
+    font-size: 16px;
+    height: 45px !important;
+  }
 }
