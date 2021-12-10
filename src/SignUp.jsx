@@ -220,7 +220,7 @@ const SignUp = () => {
         </div>
         <button
           className="signUpCreate"
-          onClick={handleCreate}
+          //   onClick={handleCreate}
           disabled={formCorrect ? false : true}
         >
           {loading ? 'Submitting...' : 'Create an account'}
