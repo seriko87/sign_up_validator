@@ -44,11 +44,10 @@ const SignUp = () => {
   useEffect(() => {
     if (emailCorrect && passCorrect & (password === rePassword)) {
       setFormCorrect(true);
-      console.log(formCorrect);
     } else {
       setFormCorrect(false);
     }
-  }, [email, password, rePassword]);
+  }, [email, password, rePassword, emailCorrect]);
 
   useEffect(() => {
     if (document.hasFocus() && ref.current.contains(document.activeElement)) {
@@ -130,7 +129,7 @@ const SignUp = () => {
       <div className="signUpHeader">
         <div className="signUpTitle">Sign up</div>
         <div className="logInInfo">
-          Already have an account? <a href="">Log in</a>{' '}
+          Already have an account? <a href="">Log in</a>
         </div>
       </div>
 
@@ -166,6 +165,17 @@ const SignUp = () => {
             onBlur={() => setFocus(false)}
             ref={ref}
           />
+          {!passVisStatus ? (
+            <Visibility
+              className="visibility"
+              onClick={() => handleVisPass()}
+            />
+          ) : (
+            <VisibilityOff
+              className="visibility"
+              onClick={() => handleVisPass()}
+            />
+          )}
           {hasFocus ? (
             <div className="passInfo">
               <div className="triangle"></div>

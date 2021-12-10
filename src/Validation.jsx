@@ -1,6 +1,6 @@
 export const emailValidation = (email) => {
   const mailformat = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
-  console.log('email');
+
   return mailformat.test(email);
 };
 

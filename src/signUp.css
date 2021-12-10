@@ -159,3 +159,12 @@ button[disabled]:hover {
   color: rgb(13, 124, 13);
   font-size: 15px !important;
 }
+
+.visibility {
+  position: absolute;
+  bottom: 13px;
+  right: 7px;
+  font-size: 20px !important;
+  cursor: pointer;
+  color: grey;
+}
